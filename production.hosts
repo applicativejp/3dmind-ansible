@@ -1,0 +1,12 @@
+[common]
+U1404x01
+
+[webservers]
+U1404x01
+
+[appservers]
+U1404x01
+
+[dbservers]
+U1404x01
+
