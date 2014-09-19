@@ -1,5 +1,7 @@
 upstream unicorn {
-    server localhost:3000 fail_timeout=0;
+{% for app in groups['appservers'] %}
+    server {{app}}:3000 fail_timeout=0;
+{% endfor %}
 }
 
 server {
