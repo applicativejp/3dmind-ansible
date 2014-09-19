@@ -1,4 +1,2 @@
-tasks:
-  - name: ping to server
-    ping: 
+- ping:
 

@@ -1,0 +1,5 @@
+- name: install nginx.
+  apt: name=nginx state=present
+- name: setup nginx config file.
+  template: src=roles/webservers/templates/default.j2 dest=/etc/nginx/sites-available/default
+

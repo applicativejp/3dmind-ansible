@@ -1,0 +1,11 @@
+- name: git clone 3dmind-docker
+  git: repo=https://github.com/qtamaki/3dmind-docker.git dest=/var/3dmind-docker
+- name: chown to app
+  command: chown app:app -R /var/3dmind-docker
+- name: startup docker
+  command: ./init.sh
+  args:
+    chdir: /var/3dmind-docker
+  sudo: yes
+  sudo_user: app
+

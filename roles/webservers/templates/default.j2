@@ -1,0 +1,21 @@
+upstream unicorn {
+{% for app in groups['appservers'] %}
+    server {{app}}:3000 fail_timeout=0;
+{% endfor %}
+}
+
+server {
+    listen       80;
+    server_name  3dmind.jp www.3dmind.jp;
+
+    root   /var/3dmind-docker/volumes/three-d-mind/public;
+
+    try_files $uri @unicorn;
+
+    location @unicorn {
+      proxy_set_header Host $http_host;
+      proxy_pass http://unicorn;
+    }
+    error_page 500 502 503 504 /500.html;
+}
+
