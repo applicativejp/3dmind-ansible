@@ -1,3 +1,4 @@
 - include: ping.yml
+- include: postfix.yml
 - include: 3dmind-docker.yml
 

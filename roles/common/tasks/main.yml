@@ -1,0 +1,4 @@
+- include: ping.yml
+- include: base.yml
+- include: docker.yml
+
