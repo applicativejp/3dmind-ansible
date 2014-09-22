@@ -8,4 +8,13 @@
     chdir: /var/3dmind-docker
   sudo: yes
   sudo_user: app
+  register: result
+  ignore_errors: True
+- name: restart docker
+  command: docker restart 3dmind1
+  args:
+    chdir: /var/3dmind-docker
+  sudo: yes
+  sudo_user: app
+  when: result.rc == 1
 

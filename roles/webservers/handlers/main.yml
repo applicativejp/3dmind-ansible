@@ -1,2 +1,4 @@
+- include: ping.yml
 - include: nginx.yml
+- include: postfix.yml
 

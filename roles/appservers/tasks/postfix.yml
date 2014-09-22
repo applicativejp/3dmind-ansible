@@ -1,4 +1,0 @@
-- name: install postfix
-  apt: name=postfix state=present
-- name: setup postfix config
-  template: src=roles/appservers/templates/main.cf.j2 dest=/etc/postfix/main.cf
