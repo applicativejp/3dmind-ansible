@@ -1,0 +1,18 @@
+server {
+    listen 443;
+    server_name  3dmind.jp www.3dmind.jp;
+
+    ssl on;
+    ssl_certificate /etc/ssl/3dmind.jp/3dmind.jp.crt;
+    ssl_certificate_key /etc/ssl/3dmind.jp/3dmind.jp.ssl.key;
+
+    root   /var/3dmind-docker/volumes/three-d-mind/public;
+
+    try_files $uri @unicorn;
+
+    location @unicorn {
+      proxy_set_header Host $http_host;
+      proxy_pass http://unicorn;
+    }
+    error_page 500 502 503 504 /500.html;
+}

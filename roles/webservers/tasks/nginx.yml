@@ -3,4 +3,10 @@
 - name: setup nginx config file.
   template: src=roles/webservers/templates/default.j2 dest=/etc/nginx/sites-available/default
   notify: restart nginx
+- name: setup nginx ssl config file.
+  template: src=roles/webservers/templates/ssl-default.j2 dest=/etc/nginx/sites-available/ssl-default
+  notify: restart nginx
+- name: create link to ssl-default
+  file: src=/etc/nginx/sites-available/ssl-default dest=/etc/nginx/sites-enabled/ssl-default state=link
+
 
